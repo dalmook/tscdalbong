@@ -1,20 +1,173 @@
 [
   {
-    "hanzi": "学习",
-    "pinyin": "xuéxí",
-    "meaning": "공부하다",
-    "pos": "동사",
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "meaning": "좋다",
+    "pos": "형용사",
     "chapter": "chapter1",
-    "example": "我们一起学习中文。",
-    "example_ko": "우리 함께 중국어를 공부해요."
+    "example": "今天天气很好。",
+    "example_ko": "오늘 날씨가 아주 좋아요."
   },
   {
-    "hanzi": "朋友",
-    "pinyin": "péngyou",
-    "meaning": "친구",
-    "pos": "명사",
+    "hanzi": "坏",
+    "pinyin": "huài",
+    "meaning": "나쁘다, 고장나다, 상하다",
+    "pos": "형용사",
     "chapter": "chapter1",
-    "example": "他是我的好朋友。",
-    "example_ko": "그는 내 친한 친구이다."
+    "example": "这辆车坏了。",
+    "example_ko": "이 차가 고장 났어요."
+  },
+  {
+    "hanzi": "多",
+    "pinyin": "duō",
+    "meaning": "많다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "教室里的人很多。",
+    "example_ko": "교실에 사람이 많아요."
+  },
+  {
+    "hanzi": "少",
+    "pinyin": "shǎo",
+    "meaning": "적다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "今天作业很少。",
+    "example_ko": "오늘 숙제가 적어요."
+  },
+  {
+    "hanzi": "大",
+    "pinyin": "dà",
+    "meaning": "크다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "这只狗很大。",
+    "example_ko": "이 개는 커요."
+  },
+  {
+    "hanzi": "小",
+    "pinyin": "xiǎo",
+    "meaning": "작다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "这本书很小。",
+    "example_ko": "이 책은 작아요."
+  },
+  {
+    "hanzi": "高",
+    "pinyin": "gāo",
+    "meaning": "높다, 키가 크다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "他个子很高。",
+    "example_ko": "그는 키가 커요."
+  },
+  {
+    "hanzi": "矮",
+    "pinyin": "ǎi",
+    "meaning": "키가 작다",
+    "pos": "형용사",
+    "chapter": "chapter1",
+    "example": "妹妹比我矮。",
+    "example_ko": "여동생은 나보다 키가 작아요."
+  },
+  {
+    "hanzi": "身体",
+    "pinyin": "shēn tǐ",
+    "meaning": "신체",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "锻炼身体很重要。",
+    "example_ko": "몸을 단련하는 것은 중요해요."
+  },
+  {
+    "hanzi": "眼睛",
+    "pinyin": "yǎn jing",
+    "meaning": "눈",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "她的眼睛很漂亮。",
+    "example_ko": "그녀의 눈은 예뻐요."
+  },
+  {
+    "hanzi": "嘴",
+    "pinyin": "zuǐ",
+    "meaning": "입",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "不要张大嘴。",
+    "example_ko": "입을 크게 벌리지 마세요."
+  },
+  {
+    "hanzi": "头",
+    "pinyin": "tóu",
+    "meaning": "머리",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "我的头疼。",
+    "example_ko": "머리가 아파요."
+  },
+  {
+    "hanzi": "脖子",
+    "pinyin": "bó zi",
+    "meaning": "목",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "长颈鹿的脖子很长。",
+    "example_ko": "기린의 목은 길어요."
+  },
+  {
+    "hanzi": "脸",
+    "pinyin": "liǎn",
+    "meaning": "얼굴",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "她的脸很红。",
+    "example_ko": "그녀의 얼굴이 빨개요."
+  },
+  {
+    "hanzi": "鼻子",
+    "pinyin": "bí zi",
+    "meaning": "코",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "我的鼻子不通。",
+    "example_ko": "내 코가 막혔어요."
+  },
+  {
+    "hanzi": "耳朵",
+    "pinyin": "ěr duo",
+    "meaning": "귀",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "小狗的耳朵很大。",
+    "example_ko": "강아지 귀가 커요."
+  },
+  {
+    "hanzi": "春天",
+    "pinyin": "chūn tiān",
+    "meaning": "봄",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "春天开很多花。",
+    "example_ko": "봄에는 꽃이 많이 펴요."
+  },
+  {
+    "hanzi": "夏天",
+    "pinyin": "xià tiān",
+    "meaning": "여름",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "夏天很热。",
+    "example_ko": "여름은 무더워요."
+  },
+  {
+    "hanzi": "冬天",
+    "pinyin": "dōng tiān",
+    "meaning": "겨울",
+    "pos": "명사",
+    "chapter": "chapter2",
+    "example": "冬天常常下雪。",
+    "example_ko": "겨울에는 눈이 자주 내려요."
   }
 ]
