@@ -2509,5 +2509,132 @@
     "example": "今天阴天。",
     "example_ko": "오늘은 흐린 날이에요",
     "chapter": "chapter2"
+  },
+  {
+    "hanzi": "学习",
+    "pinyin": "xuéxí",
+    "meaning": "공부하다",
+    "pos": "동사",
+    "chapter": "chapter3",
+    "example": "我们一起学习中文。",
+    "example_ko": "우리 함께 중국어를 공부해요."
+  },
+  {
+    "hanzi": "韩(国)语",
+    "pinyin": "Hán(guó)yǔ",
+    "meaning": "한국어",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "我在学韩语。",
+    "example_ko": "나는 한국어를 배우고 있어요."
+  },
+  {
+    "hanzi": "汉语",
+    "pinyin": "Hànyǔ",
+    "meaning": "중국어",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "他会说汉语。",
+    "example_ko": "그는 중국어를 할 줄 알아요."
+  },
+  {
+    "hanzi": "英语",
+    "pinyin": "Yīngyǔ",
+    "meaning": "영어",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "我喜欢英语。",
+    "example_ko": "나는 영어를 좋아해요."
+  },
+  {
+    "hanzi": "日语",
+    "pinyin": "Rìyǔ",
+    "meaning": "일본어",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "他会日语。",
+    "example_ko": "그는 일본어를 할 줄 알아요."
+  },
+  {
+    "hanzi": "数学",
+    "pinyin": "shùxué",
+    "meaning": "수학",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "我不太喜欢数学。",
+    "example_ko": "나는 수학을 별로 좋아하지 않아요."
+  },
+  {
+    "hanzi": "历史",
+    "pinyin": "lìshǐ",
+    "meaning": "역사",
+    "pos": "명사",
+    "chapter": "chapter3",
+    "example": "他在读历史书。",
+    "example_ko": "그는 역사책을 읽고 있어요."
+  },
+  {
+    "hanzi": "公司职员",
+    "pinyin": "gōngsī zhíyuán",
+    "meaning": "회사원",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "他是公司职员。",
+    "example_ko": "그는 회사원이에요."
+  },
+  {
+    "hanzi": "医生",
+    "pinyin": "yīshēng",
+    "meaning": "의사",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "我想当医生。",
+    "example_ko": "나는 의사가 되고 싶어요."
+  },
+  {
+    "hanzi": "老师",
+    "pinyin": "lǎoshī",
+    "meaning": "선생님",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "我是中文老师。",
+    "example_ko": "나는 중국어 선생님이에요."
+  },
+  {
+    "hanzi": "翻译",
+    "pinyin": "fānyì",
+    "meaning": "번역사",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "他是英语翻译。",
+    "example_ko": "그는 영어 번역가예요."
+  },
+  {
+    "hanzi": "韩国",
+    "pinyin": "Hánguó",
+    "meaning": "한국",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "我住在韩国。",
+    "example_ko": "나는 한국에 살아요."
+  },
+  {
+    "hanzi": "中国",
+    "pinyin": "Zhōngguó",
+    "meaning": "중국",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "中国很大。",
+    "example_ko": "중국은 매우 커요."
+  },
+  {
+    "hanzi": "美国",
+    "pinyin": "Měiguó",
+    "meaning": "미국",
+    "pos": "명사",
+    "chapter": "chapter4",
+    "example": "我朋友在美国。",
+    "example_ko": "내 친구는 미국에 있어요."
   }
-    ]
+]
+    
