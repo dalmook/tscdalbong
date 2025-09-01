@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>중국어 학습</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" role="banner" aria-label="상단 바">
+      <div class="topbar-left">
+        <span class="signal" aria-hidden="true"></span>
+        <span class="wifi" aria-hidden="true"></span>
+        <span class="battery" aria-hidden="true"></span>
+      </div>
+      <div class="topbar-center" id="clock" aria-live="polite">--:--</div>
+      <div class="topbar-right"></div>
+    </header>
+
+    <main id="app" class="screen" role="main">
+      <!-- JS가 여기(Home, 서브 화면)를 렌더링합니다. -->
+    </main>
+
+    <nav id="dock" class="dock" aria-label="도크(바로가기)">
+      <!-- 자주 쓰는 아이콘 4개 정도를 JS로 렌더링 (선택) -->
+    </nav>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
