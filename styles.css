@@ -57,4 +57,19 @@ body{margin:0;background:linear-gradient(180deg,#0b0e13,#121622);color:var(--tex
 
 
 /* 단어 카드 */
+.vocab-card{perspective:1000px;cursor:pointer;position:relative;min-height:240px}
+.vocab-card .front,.vocab-card .back{position:absolute;inset:0;backface-visibility:hidden;display:grid;gap:10px;align-content:center;justify-items:center;transition:transform .6s;border-radius:14px}
+.vocab-card .back{transform:rotateY(180deg)}
+.vocab-card.flipped .front{transform:rotateY(180deg)}
+.vocab-card.flipped .back{transform:rotateY(360deg)}
+.hanzi{font-size:40px;font-weight:800;letter-spacing:2px}
+.pinyin{font-size:16px;color:var(--accent)}
+.example{font-size:16px;color:var(--text);opacity:.95;text-align:center}
+.meaning{font-size:20px;font-weight:700;text-align:center}
+
+
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+
+
+/* 암기 완료 아이콘 버튼 */
 @media (max-width:360px){:root{--grid-gap:12px;--icon-size:48px}.hanzi{font-size:34px}}
