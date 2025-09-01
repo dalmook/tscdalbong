@@ -142,3 +142,12 @@ button, .app-icon { touch-action: manipulation; }
   border-radius:10px;
   padding:8px;
 }
+.q-prompt { font-size: 18px; font-weight: 700; margin-bottom: 14px; text-align:center; }
+.q-options { display:grid; grid-template-columns: 1fr; gap:10px; }
+.q-option { border:2px solid transparent; }
+.q-option.opt-correct { border-color: #22c55e; }   /* 초록 */
+.q-option.opt-wrong { border-color: #ef4444; }     /* 빨강 */
+
+@media (min-width: 420px) {
+  .q-options { grid-template-columns: 1fr 1fr; }
+}
