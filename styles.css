@@ -109,3 +109,36 @@ button, .app-icon { touch-action: manipulation; }
 @media (max-width: 360px) {
   :root { --grid-gap: 12px; --icon-size: 48px; }
 }
+.vocab-card {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  height: 220px;
+}
+.vocab-card .front, .vocab-card .back {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  backface-visibility: hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition: transform 0.6s;
+}
+.vocab-card .back { transform: rotateY(180deg); }
+.vocab-card.flipped .front { transform: rotateY(180deg); }
+.vocab-card.flipped .back { transform: rotateY(360deg); }
+.controls, .nav {
+  display:flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 8px;
+}
+.controls button, .nav button {
+  flex:1;
+  background:#1b2030;
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:8px;
+}
