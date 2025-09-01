@@ -1,4 +1,4 @@
-// app.js 전체 코드 (단어암기 + 퀴즈 모드)
+// app.js 전체 코드 (단어암기 + 퀴즈 모드 + 챕터별 기록 + 퀴즈 버튼 두껍게)
 // - 퀴즈 요구사항:
 //   1) 제한시간 5초/문항
 //   2) 한자→뜻, 뜻→한자 모드
@@ -7,6 +7,9 @@
 //   5) 정답 시 한자 TTS, 오답 시 경고음
 //   6) 정답 하이라이트(초록 테두리)
 //   7) 채점: 정답 +10, 오답 -10, 종료 시 남은시간(초)로 최종점수 = (합계)*남은시간
+//   +) 요청 추가: 
+//      - 챕터 변경 시 해당 챕터의 기록(시도 수/최고점/최근점/정확도) 표시
+//      - 퀴즈 버튼(보기/시작) 두껍게 & 글자 크게
 
 const $ = (sel, el=document) => el.querySelector(sel);
 const app = document.getElementById('app');
@@ -16,7 +19,8 @@ const VOCAB_URL = 'vocab.json';
 
 const LS_KEYS = {
   learned: 'vocab_learned',           // { [chapter]: { [hanzi]: true } }
-  pos:     'vocab_position'           // { chapter: string, indexByChapter: { [chapter]: number } }
+  pos:     'vocab_position',          // { chapter: string, indexByChapter: { [chapter]: number } }
+  qstats:  'quiz_stats'               // { [chapter]: { attempts, bestScore, lastScore, correct, total, lastAt } }
 };
 
 function loadLS(key, fallback){
@@ -29,6 +33,7 @@ let APP_DATA = { apps: [], dock: [] };
 let VOCAB_DATA = [];
 let learned = loadLS(LS_KEYS.learned, {});
 let pos = loadLS(LS_KEYS.pos, { chapter: 'chapter1', indexByChapter: {} });
+let qstats = loadLS(LS_KEYS.qstats, {});
 let currentChapter = pos.chapter || 'chapter1';
 let currentIndex = pos.indexByChapter?.[currentChapter] ?? 0;
 
@@ -39,6 +44,26 @@ function startClock() {
   const tick = () => { const d = new Date(); el.textContent = `${fmt(d.getHours())}:${fmt(d.getMinutes())}`; };
   tick();
   setInterval(tick, 1000 * 30);
+}
+
+// 스타일 (퀴즈 버튼 두껍게 & 크게)
+function ensureQuizStyles(){
+  if ($('#quizStyle')) return;
+  const css = `
+  .btn { padding: 14px 16px; font-size: 16px; font-weight: 700; border-width: 2px; }
+  .q-options { display:grid; gap:10px; margin-top:12px; }
+  .q-option { min-height: 56px; font-size: 18px; font-weight: 800; border:2px solid rgba(255,255,255,0.08); border-radius:14px; }
+  .q-option:active { transform: translateY(1px); }
+  .opt-correct { outline: 3px solid #36d399; }
+  .opt-wrong { outline: 3px solid #ff6b6b; }
+  #q-timer { font-weight: 800; }
+  #q-stats { display:grid; gap:6px; margin-top:10px; color:#c9d2e1; }
+  #q-stats b { color:#fff; }
+  `;
+  const style = document.createElement('style');
+  style.id = 'quizStyle';
+  style.textContent = css;
+  document.head.appendChild(style);
 }
 
 // 라우팅
@@ -176,30 +201,53 @@ function nextCard(){ const list = wordsOf(currentChapter); if(currentIndex<list.
 // ------------------ 퀴즈 ------------------
 const QUIZ = {
   state: null,
+  ensureStyles: ensureQuizStyles,
+  chapterStats(ch){
+    const s = qstats[ch] || { attempts:0, bestScore:0, lastScore:0, correct:0, total:0, lastAt:null };
+    const acc = s.total ? Math.round((s.correct / s.total) * 100) : 0;
+    return { ...s, acc };
+  },
+  renderStatsPanel(ch){
+    const s = QUIZ.chapterStats(ch);
+    $('#q-stats').innerHTML = `
+      <div>시도: <b>${s.attempts}</b>회</div>
+      <div>최고점: <b>${s.bestScore}</b></div>
+      <div>최근점: <b>${s.lastScore}</b></div>
+      <div>정확도: <b>${s.acc}%</b> (${s.correct}/${s.total})</div>
+      <div>최근일시: <b>${s.lastAt ? new Date(s.lastAt).toLocaleString() : '-'}</b></div>
+    `;
+  },
   createConfig(){
+    QUIZ.ensureStyles();
     const chs = chapters();
     const header = `
-      <div class="sub-header">
-        <button class="back" onclick="navigate('home')">← 홈</button>
-        <div class="sub-title">퀴즈 설정</div>
+      <div class=\"sub-header\">
+        <button class=\"back\" onclick=\"navigate('home')\">← 홈</button>
+        <div class=\"sub-title\">퀴즈 설정</div>
       </div>`;
     app.innerHTML = `
-      <div class="subscreen">
+      <div class=\"subscreen\">
         ${header}
-        <section class="card">
-          <label style="display:block;margin-bottom:10px;color:#9aa4b2;">챕터</label>
-          <select id="q-chapter" class="select">${chs.map(ch=>`<option value="${ch}">${ch}</option>`).join('')}</select>
-          <div style="height:10px"></div>
-          <label style="display:block;margin-bottom:10px;color:#9aa4b2;">모드</label>
-          <label class="pill"><input type="radio" name="qmode" value="hz2ko" checked> 한자→뜻</label>
-          <label class="pill" style="margin-left:8px;"><input type="radio" name="qmode" value="ko2hz"> 뜻→한자</label>
-          <div style="height:14px"></div>
-          <button class="btn" id="q-start">시작 (20문항)</button>
+        <section class=\"card\">
+          <label style=\"display:block;margin-bottom:10px;color:#9aa4b2;\">챕터</label>
+          <select id=\"q-chapter\" class=\"select\">${chs.map(ch=>`<option value=\"${ch}\">${ch}</option>`).join('')}</select>
+          <div id=\"q-stats\"></div>
+          <div style=\"height:10px\"></div>
+          <label style=\"display:block;margin-bottom:10px;color:#9aa4b2;\">모드</label>
+          <label class=\"pill\"><input type=\"radio\" name=\"qmode\" value=\"hz2ko\" checked> 한자→뜻</label>
+          <label class=\"pill\" style=\"margin-left:8px;\"><input type=\"radio\" name=\"qmode\" value=\"ko2hz\"> 뜻→한자</label>
+          <div style=\"height:14px\"></div>
+          <button class=\"btn\" id=\"q-start\">시작 (20문항)</button>
         </section>
       </div>`;
 
+    const chSel = $('#q-chapter');
+    const updateStats = ()=> QUIZ.renderStatsPanel(chSel.value);
+    chSel.addEventListener('change', updateStats);
+    updateStats(); // 초기 표시
+
     $('#q-start').addEventListener('click', ()=>{
-      const chapter = $('#q-chapter').value;
+      const chapter = chSel.value;
       const mode = [...document.querySelectorAll('input[name="qmode"]')].find(i=>i.checked).value;
       QUIZ.start({ chapter, mode });
     });
@@ -223,7 +271,7 @@ const QUIZ = {
       }
       // 보기 중복 방지
       options = Array.from(new Set(options));
-      while (options.length < 4) {
+      while (options.length < 4 && wrongPool.length) {
         const extra = sample(wrongPool, 1)[0];
         options.push(mode==='hz2ko'? extra.meaning : extra.hanzi);
         options = Array.from(new Set(options));
@@ -241,7 +289,8 @@ const QUIZ = {
       left: 5,               // 현재 문제 남은 시간
       timer: null,
       leftoverTotal: 0,      // 누적 남은 시간 (초)
-      locked: false
+      locked: false,
+      correctCount: 0        // 정확도 집계용
     };
     QUIZ.render();
     QUIZ.tickStart();
@@ -260,8 +309,7 @@ const QUIZ = {
   timeUp(){
     const s = QUIZ.state; if (!s || s.locked) return;
     s.locked = true;
-    // 오답 처리(-10)
-    s.score -= 10;
+    s.score -= 10; // 오답 처리
     beep();
     QUIZ.reveal(null);
     setTimeout(()=> QUIZ.next(), 700);
@@ -274,6 +322,7 @@ const QUIZ = {
     if (correct) {
       s.score += 10;
       s.leftoverTotal += s.left; // 남은 시간 누적
+      s.correctCount += 1;
       speak(q.target.hanzi, 'zh-CN', 1);
     } else {
       s.score -= 10;
@@ -305,11 +354,26 @@ const QUIZ = {
     const finalScore = base * Math.max(0, s.leftoverTotal); // 요구사항 7
     clearInterval(s.timer);
 
+    // --- 챕터별 기록 업데이트 ---
+    const ch = s.chapter;
+    const prev = qstats[ch] || { attempts:0, bestScore:0, lastScore:0, correct:0, total:0, lastAt:null };
+    const totalQ = s.questions.length;
+    const newStats = {
+      attempts: prev.attempts + 1,
+      bestScore: Math.max(prev.bestScore||0, finalScore),
+      lastScore: finalScore,
+      correct: (prev.correct || 0) + s.correctCount,
+      total: (prev.total || 0) + totalQ,
+      lastAt: new Date().toISOString()
+    };
+    qstats[ch] = newStats; saveLS(LS_KEYS.qstats, qstats);
+
     app.innerHTML = `
       <div class="subscreen">
         <div class="sub-header">
-          <button class="back" onclick="navigate('home')">← 홈</button>
+          <button class="back" onclick="QUIZ.createConfig()">← 설정</button>
           <div class="sub-title">결과</div>
+          <span class="pill">정확도 이번: ${Math.round((s.correctCount/totalQ)*100)}%</span>
         </div>
         <section class="card">
           <p>챕터: <b>${s.chapter}</b> / 모드: <b>${s.mode==='hz2ko'?'한자→뜻':'뜻→한자'}</b></p>
@@ -318,12 +382,22 @@ const QUIZ = {
           <hr style="opacity:.2; margin:10px 0;">
           <p style="font-size:20px; font-weight:800;">최종 점수: <span>${finalScore}</span></p>
           <div style="height:12px"></div>
+          <div id="q-stats" class="card" style="margin-bottom:12px"></div>
           <button class="btn" id="q-retry">다시 풀기</button>
           <button class="btn" onclick="navigate('home')" style="margin-left:8px;">홈으로</button>
         </section>
       </div>`;
 
     $('#q-retry').addEventListener('click', ()=> QUIZ.start({ chapter: s.chapter, mode: s.mode }));
+    // 결과 화면에서도 최신 기록 표시
+    const statBox = document.getElementById('q-stats');
+    if (statBox) statBox.outerHTML = `<div id=\"q-stats\" class=\"card\" style=\"margin-bottom:12px\">\n${(()=>{ const t=QUIZ.chapterStats(ch); return `
+      <div>누적 시도: <b>${t.attempts}</b>회</div>
+      <div>최고점: <b>${t.bestScore}</b></div>
+      <div>최근점: <b>${t.lastScore}</b></div>
+      <div>누적 정확도: <b>${t.acc}%</b> (${t.correct}/${t.total})</div>
+      <div>최근일시: <b>${t.lastAt ? new Date(t.lastAt).toLocaleString() : '-'}</b></div>
+    `;})()}\n</div>`;
   },
   render(){
     const s = QUIZ.state; const q = s.questions[s.idx];
@@ -339,7 +413,7 @@ const QUIZ = {
       <div class="subscreen">
         ${header}
         <section class="card">
-          <div class="q-prompt">${q.prompt}</div>
+          <div class="q-prompt" style="font-size:22px; font-weight:800;">${q.prompt}</div>
           <div class="q-options">
             ${q.options.map(o=>`<button class="btn q-option" data-val="${o}">${o}</button>`).join('')}
           </div>
@@ -374,6 +448,7 @@ async function init(){
   }catch(e){ console.error(e); }
 
   startClock();
+  ensureQuizStyles();
   renderDock();
   const initial = location.hash.replace('#','')||'home';
   if(initial==='vocab') renderVocab();
