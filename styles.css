@@ -1,0 +1,249 @@
+/* styles.css - 세련된 다크 테마 UI */
+
+/* 공통 레이아웃 */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+  background-color: #0f1117;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 상단 상태바 */
+#statusbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #9ca3af;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1b2030;
+}
+
+/* 홈 화면 아이콘 그리드 */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  background: #1b2030;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  color: #fff;
+  font-size: 14px;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.app-icon:hover {
+  background: #242a3a;
+  transform: translateY(-3px);
+}
+
+.app-emoji {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* 하단 도크 */
+#dock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1b2030;
+}
+
+.dock-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.15s;
+}
+
+.dock-btn:active {
+  transform: scale(0.9);
+}
+
+/* 서브 화면 공통 */
+.subscreen {
+  margin-top: 12px;
+}
+
+.sub-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sub-title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.back {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.pill {
+  background: #2a3145;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* 카드 */
+.card {
+  background: #1b2030;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* 버튼 */
+.btn {
+  background: linear-gradient(135deg, #374151, #111827);
+  border: 2px solid #4b5563;
+  color: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #4b5563, #1f2937);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* 드롭다운 */
+.select {
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #374151;
+  border-radius: 12px;
+  background: #1f2937;
+  color: #f9fafb;
+  cursor: pointer;
+}
+
+/* 단어 카드 */
+.vocab-card {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  height: 240px;
+}
+
+.vocab-card .front, .vocab-card .back {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  backface-visibility: hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition: transform 0.6s;
+  border-radius: 14px;
+}
+
+.vocab-card .back {
+  transform: rotateY(180deg);
+}
+
+.vocab-card.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.vocab-card.flipped .back {
+  transform: rotateY(360deg);
+}
+
+.hanzi { font-size: 36px; font-weight: 800; }
+.pinyin { font-size: 16px; color: #9ca3af; }
+.example { font-size: 14px; color: #94a3b8; margin-top: 6px; }
+
+/* 컨트롤 영역 */
+.controls, .nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  gap: 10px;
+}
+
+.controls button, .nav button {
+  flex: 1;
+}
+
+/* 퀴즈 & 문장만들기 공통 */
+.q-prompt, .s-prompt {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.q-options, .s-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.q-option, .s-option {
+  min-height: 56px;
+  font-size: 18px;
+  font-weight: 700;
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: #2a3145;
+  color: #f9fafb;
+}
+
+.opt-correct { outline: 3px solid #36d399; }
+.opt-wrong { outline: 3px solid #f87171; }
+
+.s-assembled {
+  min-height: 50px;
+  background: #111827;
+  border: 1px dashed #4b5563;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+
+}
