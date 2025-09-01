@@ -1,0 +1,11 @@
+{
+  "apps": [
+    { "id": "vocab",    "title": "단어암기",   "emoji": "📚" },
+    { "id": "quiz",     "title": "퀴즈",     "emoji": "🧠" },
+    { "id": "sentence", "title": "문장만들기", "emoji": "✍️" },
+    { "id": "review",   "title": "복습",     "emoji": "🔁" },
+    { "id": "stats",    "title": "통계",     "emoji": "📈" },
+    { "id": "settings", "title": "설정",     "emoji": "⚙️" }
+  ],
+  "dock": ["vocab", "quiz", "sentence", "settings"]
+}
