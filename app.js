@@ -1,3 +1,53 @@
+// 간단한 해시 기반 라우팅 + JSON 기반 홈 그리드 렌더링
+const $ = (sel, el=document) => el.querySelector(sel);
+const app = document.getElementById('app');
+const dock = document.getElementById('dock');
+const DATA_URL = 'appData.json';
+let APP_DATA = { apps: [], dock: [] };
+
+// 상단 시계
+function startClock() {
+  const el = document.getElementById('clock');
+  const fmt = n => String(n).padStart(2,'0');
+  const tick = () => {
+    const d = new Date();
+    el.textContent = `${fmt(d.getHours())}:${fmt(d.getMinutes())}`;
+  };
+  tick();
+  setInterval(tick, 1000 * 30);
+}
+
+// 라우팅
+function navigate(to) {
+  if (!to || to === 'home') {
+    history.replaceState({}, '', '#home');
+    renderHome();
+  } else {
+    history.pushState({}, '', `#${to}`);
+    renderSubscreen(to);
+  }
+}
+
+window.addEventListener('popstate', () => {
+  const id = location.hash.replace('#','') || 'home';
+  if (id === 'home') renderHome(); else renderSubscreen(id);
+});
+
+// 홈 렌더링
+function renderHome() {
+  const grid = document.createElement('section');
+  grid.className = 'home-grid';
+
+  APP_DATA.apps.forEach(appItem => {
+    const card = document.createElement('button');
+    card.className = 'app-icon';
+    card.setAttribute('aria-label', `${appItem.title} 열기`);
+    card.innerHTML = `<span class="app-emoji">${appItem.emoji}</span><span class="app-title">${appItem.title}</span>`;
+    card.addEventListener('click', () => navigate(appItem.id));
+    grid.appendChild(card);
+  });
+
+  app.innerHTML = '';
   app.appendChild(grid);
 }
 
