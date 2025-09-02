@@ -2513,128 +2513,658 @@
   {
     "hanzi": "学习",
     "pinyin": "xuéxí",
-    "meaning": "공부하다",
+    "meaning": "공부하다, 배우다",
     "pos": "동사",
-    "chapter": "chapter3",
     "example": "我们一起学习中文。",
-    "example_ko": "우리 함께 중국어를 공부해요."
+    "example_ko": "우리 함께 중국어를 공부해요",
+    "chapter": "chapter3"
   },
   {
-    "hanzi": "韩(国)语",
-    "pinyin": "Hán(guó)yǔ",
-    "meaning": "한국어",
+    "hanzi": "体育",
+    "pinyin": "tǐ yù",
+    "meaning": "체육",
     "pos": "명사",
-    "chapter": "chapter3",
-    "example": "我在学韩语。",
-    "example_ko": "나는 한국어를 배우고 있어요."
+    "example": "我喜欢体育课。",
+    "example_ko": "나는 체육 수업을 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "去",
+    "pinyin": "qù",
+    "meaning": "가다",
+    "pos": "동사",
+    "example": "我明天去学校。",
+    "example_ko": "나는 내일 학교에 가요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "医院",
+    "pinyin": "yī yuàn",
+    "meaning": "병원",
+    "pos": "명사",
+    "example": "他在医院工作。",
+    "example_ko": "그는 병원에서 일해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "百货商店",
+    "pinyin": "bǎi huò shāng diàn",
+    "meaning": "백화점",
+    "pos": "명사",
+    "example": "妈妈去百货商店买东西。",
+    "example_ko": "엄마는 백화점에 물건 사러 가셨어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "化妆品",
+    "pinyin": "huà zhuāng pǐn",
+    "meaning": "화장품",
+    "pos": "명사",
+    "example": "姐姐买了很多化妆品。",
+    "example_ko": "언니는 화장품을 많이 샀어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "钱包",
+    "pinyin": "qián bāo",
+    "meaning": "돈지갑",
+    "pos": "명사",
+    "example": "我的钱包丢了。",
+    "example_ko": "내 지갑을 잃어버렸어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "吃",
+    "pinyin": "chī",
+    "meaning": "먹다",
+    "pos": "동사",
+    "example": "我喜欢吃米饭。",
+    "example_ko": "나는 밥 먹는 것을 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "米饭",
+    "pinyin": "mǐ fàn",
+    "meaning": "밥",
+    "pos": "명사",
+    "example": "我每天都吃米饭。",
+    "example_ko": "나는 매일 밥을 먹어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "面条",
+    "pinyin": "miàn tiáo",
+    "meaning": "국수",
+    "pos": "명사",
+    "example": "中国的面条很好吃。",
+    "example_ko": "중국 국수는 맛있어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "水",
+    "pinyin": "shuǐ",
+    "meaning": "물",
+    "pos": "명사",
+    "example": "我想喝水。",
+    "example_ko": "나는 물을 마시고 싶어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "咖啡",
+    "pinyin": "kā fēi",
+    "meaning": "커피",
+    "pos": "명사",
+    "example": "我每天早上喝咖啡。",
+    "example_ko": "나는 매일 아침 커피를 마셔요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "菜",
+    "pinyin": "cài",
+    "meaning": "요리",
+    "pos": "명사",
+    "example": "这道菜很好吃。",
+    "example_ko": "이 요리는 맛있어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "生意",
+    "pinyin": "shēng yì",
+    "meaning": "장사, 비즈니스",
+    "pos": "명사",
+    "example": "他在做生意。",
+    "example_ko": "그는 장사를 하고 있어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "书",
+    "pinyin": "shū",
+    "meaning": "책",
+    "pos": "명사",
+    "example": "我喜欢读书。",
+    "example_ko": "나는 책 읽는 걸 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "电视",
+    "pinyin": "diàn shì",
+    "meaning": "텔레비전",
+    "pos": "명사",
+    "example": "我在看电视。",
+    "example_ko": "나는 텔레비전을 보고 있어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "喜欢",
+    "pinyin": "xǐ huān",
+    "meaning": "좋아하다",
+    "pos": "동사",
+    "example": "我喜欢运动。",
+    "example_ko": "나는 운동을 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "花",
+    "pinyin": "huā",
+    "meaning": "꽃",
+    "pos": "명사",
+    "example": "花很漂亮。",
+    "example_ko": "꽃은 아주 예뻐요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "衣服",
+    "pinyin": "yī fu",
+    "meaning": "옷",
+    "pos": "명사",
+    "example": "我买了一件新衣服。",
+    "example_ko": "나는 새 옷을 한 벌 샀어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "鞋子",
+    "pinyin": "xié zi",
+    "meaning": "신발",
+    "pos": "명사",
+    "example": "你的鞋子很漂亮。",
+    "example_ko": "네 신발은 예쁘다",
+    "chapter": "chapter3"
   },
   {
     "hanzi": "汉语",
-    "pinyin": "Hànyǔ",
+    "pinyin": "Hàn yǔ",
     "meaning": "중국어",
     "pos": "명사",
-    "chapter": "chapter3",
-    "example": "他会说汉语。",
-    "example_ko": "그는 중국어를 할 줄 알아요."
-  },
-  {
-    "hanzi": "英语",
-    "pinyin": "Yīngyǔ",
-    "meaning": "영어",
-    "pos": "명사",
-    "chapter": "chapter3",
-    "example": "我喜欢英语。",
-    "example_ko": "나는 영어를 좋아해요."
+    "example": "他在学汉语。",
+    "example_ko": "그는 중국어를 배우고 있어요",
+    "chapter": "chapter3"
   },
   {
     "hanzi": "日语",
-    "pinyin": "Rìyǔ",
+    "pinyin": "Rì yǔ",
     "meaning": "일본어",
     "pos": "명사",
-    "chapter": "chapter3",
-    "example": "他会日语。",
-    "example_ko": "그는 일본어를 할 줄 알아요."
+    "example": "我不会说日语。",
+    "example_ko": "나는 일본어를 못해요",
+    "chapter": "chapter3"
   },
   {
-    "hanzi": "数学",
-    "pinyin": "shùxué",
-    "meaning": "수학",
+    "hanzi": "英语",
+    "pinyin": "Yīng yǔ",
+    "meaning": "영어",
     "pos": "명사",
-    "chapter": "chapter3",
-    "example": "我不太喜欢数学。",
-    "example_ko": "나는 수학을 별로 좋아하지 않아요."
+    "example": "她的英语很好。",
+    "example_ko": "그녀는 영어를 잘해요",
+    "chapter": "chapter3"
   },
   {
     "hanzi": "历史",
-    "pinyin": "lìshǐ",
+    "pinyin": "lì shǐ",
     "meaning": "역사",
     "pos": "명사",
-    "chapter": "chapter3",
-    "example": "他在读历史书。",
-    "example_ko": "그는 역사책을 읽고 있어요."
+    "example": "我对历史很感兴趣。",
+    "example_ko": "나는 역사에 관심이 많아요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "美术",
+    "pinyin": "měi shù",
+    "meaning": "미술",
+    "pos": "명사",
+    "example": "她喜欢美术。",
+    "example_ko": "그녀는 미술을 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "图书馆",
+    "pinyin": "tú shū guǎn",
+    "meaning": "도서관",
+    "pos": "명사",
+    "example": "我在图书馆看书。",
+    "example_ko": "나는 도서관에서 책을 봐요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "公园",
+    "pinyin": "gōng yuán",
+    "meaning": "공원",
+    "pos": "명사",
+    "example": "孩子们在公园玩。",
+    "example_ko": "아이들은 공원에서 놀아요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "水果",
+    "pinyin": "shuǐ guǒ",
+    "meaning": "과일",
+    "pos": "명사",
+    "example": "我喜欢吃水果。",
+    "example_ko": "나는 과일 먹는 걸 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "电脑",
+    "pinyin": "diàn nǎo",
+    "meaning": "컴퓨터",
+    "pos": "명사",
+    "example": "我用电脑工作。",
+    "example_ko": "나는 컴퓨터로 일해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "面包",
+    "pinyin": "miàn bāo",
+    "meaning": "빵",
+    "pos": "명사",
+    "example": "早餐我吃面包。",
+    "example_ko": "나는 아침에 빵을 먹어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "蛋糕",
+    "pinyin": "dàn gāo",
+    "meaning": "케이크",
+    "pos": "명사",
+    "example": "生日我吃蛋糕。",
+    "example_ko": "생일에 나는 케이크를 먹어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "牛奶",
+    "pinyin": "niú nǎi",
+    "meaning": "우유",
+    "pos": "명사",
+    "example": "我每天喝牛奶。",
+    "example_ko": "나는 매일 우유를 마셔요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "可乐",
+    "pinyin": "kě lè",
+    "meaning": "콜라",
+    "pos": "명사",
+    "example": "我喜欢喝可乐。",
+    "example_ko": "나는 콜라를 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "作业",
+    "pinyin": "zuò yè",
+    "meaning": "숙제",
+    "pos": "명사",
+    "example": "我有很多作业。",
+    "example_ko": "나는 숙제가 많아요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "好事",
+    "pinyin": "hǎo shì",
+    "meaning": "좋은 일",
+    "pos": "명사",
+    "example": "帮助别人是好事。",
+    "example_ko": "다른 사람을 돕는 것은 좋은 일이에요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "电影",
+    "pinyin": "diàn yǐng",
+    "meaning": "영화",
+    "pos": "명사",
+    "example": "我喜欢看电影。",
+    "example_ko": "나는 영화를 보는 걸 좋아해요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "报纸",
+    "pinyin": "bào zhǐ",
+    "meaning": "신문",
+    "pos": "명사",
+    "example": "爷爷每天看报纸。",
+    "example_ko": "할아버지는 매일 신문을 보세요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "运动",
+    "pinyin": "yùn dòng",
+    "meaning": "운동",
+    "pos": "명사",
+    "example": "我们一起去运动。",
+    "example_ko": "우리 함께 운동하러 가요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "旅游",
+    "pinyin": "lǚ yóu",
+    "meaning": "여행",
+    "pos": "명사",
+    "example": "我们明天去旅游。",
+    "example_ko": "우리는 내일 여행 가요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "朋友",
+    "pinyin": "péng you",
+    "meaning": "친구",
+    "pos": "명사",
+    "example": "他是我的好朋友。",
+    "example_ko": "그는 내 좋은 친구예요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "大衣",
+    "pinyin": "dà yī",
+    "meaning": "외투",
+    "pos": "명사",
+    "example": "她穿了一件大衣。",
+    "example_ko": "그녀는 외투를 입었어요",
+    "chapter": "chapter3"
+  },
+  {
+    "hanzi": "袜子",
+    "pinyin": "wà zi",
+    "meaning": "양말",
+    "pos": "명사",
+    "example": "我的袜子很脏。",
+    "example_ko": "내 양말은 더러워요",
+    "chapter": "chapter3"
   },
   {
     "hanzi": "公司职员",
-    "pinyin": "gōngsī zhíyuán",
+    "pinyin": "gōng sī zhí yuán",
     "meaning": "회사원",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "他是公司职员。",
-    "example_ko": "그는 회사원이에요."
+    "example_ko": "그는 회사원이에요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "银行职员",
+    "pinyin": "yín háng zhí yuán",
+    "meaning": "은행원",
+    "pos": "명사",
+    "example": "姐姐是银行职员。",
+    "example_ko": "누나는 은행원이에요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "教师",
+    "pinyin": "jiào shī",
+    "meaning": "교사, 선생님",
+    "pos": "명사",
+    "example": "她是教师。",
+    "example_ko": "그녀는 선생님이에요",
+    "chapter": "chapter4"
   },
   {
     "hanzi": "医生",
-    "pinyin": "yīshēng",
+    "pinyin": "yī shēng",
     "meaning": "의사",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "我想当医生。",
-    "example_ko": "나는 의사가 되고 싶어요."
+    "example_ko": "나는 의사가 되고 싶어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "售票员",
+    "pinyin": "shòu piào yuán",
+    "meaning": "매표원",
+    "pos": "명사",
+    "example": "售票员在车站工作。",
+    "example_ko": "매표원은 역에서 일해요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "司机",
+    "pinyin": "sī jī",
+    "meaning": "기사, 운전사",
+    "pos": "명사",
+    "example": "出租车司机很友好。",
+    "example_ko": "택시 기사는 친절해요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "快递员",
+    "pinyin": "kuài dì yuán",
+    "meaning": "택배기사",
+    "pos": "명사",
+    "example": "快递员送来一个包裹。",
+    "example_ko": "택배기사가 소포를 가져왔어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "演员",
+    "pinyin": "yǎn yuán",
+    "meaning": "배우",
+    "pos": "명사",
+    "example": "他是有名的演员。",
+    "example_ko": "그는 유명한 배우예요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "作家",
+    "pinyin": "zuò jiā",
+    "meaning": "작가",
+    "pos": "명사",
+    "example": "她是一位作家。",
+    "example_ko": "그녀는 한 명의 작가예요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "导游",
+    "pinyin": "dǎo yóu",
+    "meaning": "가이드",
+    "pos": "명사",
+    "example": "导游带我们参观了长城。",
+    "example_ko": "가이드가 우리를 데리고 만리장성을 구경시켜줬어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "上班族",
+    "pinyin": "shàng bān zú",
+    "meaning": "샐러리맨, 직장인",
+    "pos": "명사",
+    "example": "很多上班族每天都很忙。",
+    "example_ko": "많은 직장인들은 매일 바빠요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "公务员",
+    "pinyin": "gōng wù yuán",
+    "meaning": "공무원",
+    "pos": "명사",
+    "example": "他是公务员。",
+    "example_ko": "그는 공무원이에요",
+    "chapter": "chapter4"
   },
   {
     "hanzi": "老师",
-    "pinyin": "lǎoshī",
+    "pinyin": "lǎo shī",
     "meaning": "선생님",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "我是中文老师。",
-    "example_ko": "나는 중국어 선생님이에요."
+    "example_ko": "나는 중국어 선생님이에요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "售货员",
+    "pinyin": "shòu huò yuán",
+    "meaning": "판매원",
+    "pos": "명사",
+    "example": "售货员很热情。",
+    "example_ko": "판매원은 매우 친절해요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "服务员",
+    "pinyin": "fú wù yuán",
+    "meaning": "종업원",
+    "pos": "명사",
+    "example": "服务员来了。",
+    "example_ko": "종업원이 왔어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "警察",
+    "pinyin": "jǐng chá",
+    "meaning": "경찰",
+    "pos": "명사",
+    "example": "警察在路口站着。",
+    "example_ko": "경찰이 길모퉁이에 서 있어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "运动员",
+    "pinyin": "yùn dòng yuán",
+    "meaning": "운동선수",
+    "pos": "명사",
+    "example": "他是篮球运动员。",
+    "example_ko": "그는 농구 선수예요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "歌手",
+    "pinyin": "gē shǒu",
+    "meaning": "가수",
+    "pos": "명사",
+    "example": "她是著名的歌手。",
+    "example_ko": "그녀는 유명한 가수예요",
+    "chapter": "chapter4"
   },
   {
     "hanzi": "翻译",
-    "pinyin": "fānyì",
-    "meaning": "번역사",
+    "pinyin": "fān yì",
+    "meaning": "번역사, 통역사",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "他是英语翻译。",
-    "example_ko": "그는 영어 번역가예요."
+    "example_ko": "그는 영어 번역가예요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "护士",
+    "pinyin": "hù shì",
+    "meaning": "간호사",
+    "pos": "명사",
+    "example": "护士照顾病人。",
+    "example_ko": "간호사는 환자를 돌봐요",
+    "chapter": "chapter4"
   },
   {
     "hanzi": "韩国",
-    "pinyin": "Hánguó",
+    "pinyin": "Hán guó",
     "meaning": "한국",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "我住在韩国。",
-    "example_ko": "나는 한국에 살아요."
-  },
-  {
-    "hanzi": "中国",
-    "pinyin": "Zhōngguó",
-    "meaning": "중국",
-    "pos": "명사",
-    "chapter": "chapter4",
-    "example": "中国很大。",
-    "example_ko": "중국은 매우 커요."
+    "example_ko": "나는 한국에 살아요",
+    "chapter": "chapter4"
   },
   {
     "hanzi": "美国",
-    "pinyin": "Měiguó",
+    "pinyin": "Měi guó",
     "meaning": "미국",
     "pos": "명사",
-    "chapter": "chapter4",
     "example": "我朋友在美国。",
-    "example_ko": "내 친구는 미국에 있어요."
+    "example_ko": "내 친구는 미국에 있어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "德国",
+    "pinyin": "Dé guó",
+    "meaning": "독일",
+    "pos": "명사",
+    "example": "德国在欧洲。",
+    "example_ko": "독일은 유럽에 있어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "西班牙",
+    "pinyin": "Xī bān yá",
+    "meaning": "스페인",
+    "pos": "명사",
+    "example": "西班牙有很多美食。",
+    "example_ko": "스페인에는 맛있는 음식이 많아요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "巴西",
+    "pinyin": "Bā xī",
+    "meaning": "브라질",
+    "pos": "명사",
+    "example": "巴西足球很有名。",
+    "example_ko": "브라질 축구는 유명해요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "中国",
+    "pinyin": "Zhōng guó",
+    "meaning": "중국",
+    "pos": "명사",
+    "example": "中国很大。",
+    "example_ko": "중국은 매우 커요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "日本",
+    "pinyin": "Rì běn",
+    "meaning": "일본",
+    "pos": "명사",
+    "example": "日本是邻国。",
+    "example_ko": "일본은 이웃 나라예요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "英国",
+    "pinyin": "Yīng guó",
+    "meaning": "영국",
+    "pos": "명사",
+    "example": "我去英国留学。",
+    "example_ko": "나는 영국에 유학 가요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "法国",
+    "pinyin": "Fǎ guó",
+    "meaning": "프랑스",
+    "pos": "명사",
+    "example": "法国有巴黎。",
+    "example_ko": "프랑스에는 파리가 있어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "意大利",
+    "pinyin": "Yì dà lì",
+    "meaning": "이탈리아",
+    "pos": "명사",
+    "example": "意大利披萨很好吃。",
+    "example_ko": "이탈리아 피자가 맛있어요",
+    "chapter": "chapter4"
+  },
+  {
+    "hanzi": "加拿大",
+    "pinyin": "Jiā ná dà",
+    "meaning": "캐나다",
+    "pos": "명사",
+    "example": "加拿大冬天很冷。",
+    "example_ko": "캐나다 겨울은 추워요",
+    "chapter": "chapter4"
   }
 ]
-    
