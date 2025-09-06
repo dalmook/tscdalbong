@@ -149,8 +149,49 @@ const SENT={ state:null,
   createConfig(){ const chs=chapters(); const header=`<div class=\"sub-header\"><button class=\"back\" onclick=\"navigate('home')\">← 홈</button><div class=\"sub-title\">문장만들기 설정</div></div>`; app.innerHTML=`<div class=\"subscreen\">${header}<section class=\"card\"><label style=\"display:block;margin-bottom:10px;color:#9aa4b2;\">챕터</label><select id=\"s-chapter\" class=\"select\">${chs.map(ch=>`<option value=\"${ch}\">${ch}</option>`).join('')}</select><div id=\"s-stats\"></div><div class=\"note\">점수 산정: <b>시작 1000점</b>에서 오답마다 <b>-10점</b>, 세트 종료 시 <b>최종점수 = 현재점수 - 전체 경과초</b> (최소 0)</div><div style=\"height:14px\"></div><button class=\"btn\" id=\"s-start\">시작 (3문제)</button></section></div>`; const sel=$('#s-chapter'); const up=()=>this.renderStatsPanel(sel.value); sel.addEventListener('change',up); up(); $('#s-start').addEventListener('click',()=>this.start({chapter:sel.value})); },
   tokenizeChinese(str){ const chars=(str||'').replace(/[\s，。！？、,.!?:；;“”\-—]/g,'').split(''); return chars.filter(Boolean); },
   pickProblems(ch){ const pool=wordsOf(ch).filter(v=>v.example&&v.example_ko); const uniq=[], seen=new Set(); for(const v of pool){ const k=v.example+'|'+v.example_ko; if(!seen.has(k)){ seen.add(k); uniq.push(v);} } const picked=sample(uniq, Math.min(3, uniq.length)); return picked.map(v=>{ const ans=this.tokenizeChinese(v.example); return {ko:v.example_ko, zh:v.example, tokens:shuffle(ans.slice()), answer:ans}; }); },
-  start({chapter}){ const problems=this.pickProblems(chapter); this.state={chapter,problems,idx:0,score:1000,startAt:Date.now(),assembled:[]}; this.render(); },
-  choose(tok){ const s=this.state; const cur=s.problems[s.idx]; const pos=s.assembled.length; const exp=cur.answer[pos]; const btn=[...document.querySelectorAll('.s-option')].find(b=>b.textContent===tok && !b.disabled); if(tok===exp){ s.assembled.push(tok); if(btn) btn.disabled=true; } else { s.score=Math.max(0,s.score-10); if(btn){ btn.classList.add('opt-wrong'); setTimeout(()=>btn.classList.remove('opt-wrong'),300);} beep(); return; } if(s.assembled.length===cur.answer.length){ setTimeout(()=> this.next(), 400); } else { this.updateAssembled(); } },
+  start({chapter}){ const problems=this.pickProblems(chapter); this.state={chapter,problems,idx:0,score:1000,startAt:Date.now(),assembled:[], locked: false}; this.render(); },
+  choose(tok){ const s=this.state;if (!s || s.locked) return; const cur=s.problems[s.idx]; const pos=s.assembled.length; const exp=cur.answer[pos]; const btn=[...document.querySelectorAll('.s-option')].find(b=>b.textContent===tok && !b.disabled); if(tok===exp){ s.assembled.push(tok); if(btn) btn.disabled=true; } else { s.score=Math.max(0,s.score-10); if(btn){ btn.classList.add('opt-wrong'); setTimeout(()=>btn.classList.remove('opt-wrong'),300);} beep(); return; } // ✅ 교체: 완성되면 문장 읽고 "정답!" 후 다음 문제로
+if (s.assembled.length === cur.answer.length) {
+  s.locked = true;
+
+  // 옵션 비활성화(오터치 방지)
+  [...document.querySelectorAll('.s-option')].forEach(b => b.disabled = true);
+
+  // 완성 문장 표시 + 시각적 피드백
+  const sentence = s.assembled.join('');
+  const box = document.getElementById('s-assembled');
+  if (box) {
+    box.textContent = sentence;
+    box.classList.add('opt-correct'); // 초록 외곽선(기존 클래스 재사용)
+  }
+
+  // TTS: 중국어 문장(0.8x) -> "정답!"(한국어)
+  const u1 = new SpeechSynthesisUtterance(sentence);
+  u1.lang = 'zh-CN';
+  u1.rate = 0.8;
+
+  const u2 = new SpeechSynthesisUtterance('정답!');
+  u2.lang = 'ko-KR';
+  u2.rate = 1;
+
+  u1.onend = () => speechSynthesis.speak(u2);
+  u2.onend = () => {
+    s.locked = false;                 // 다음 문제로 넘어가기 전 잠금 해제
+    setTimeout(() => SENT.next(), 250); // 약간의 딜레이로 오터치 방지
+  };
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u1);
+
+  // onend 못 받는 브라우저 대비 안전장치(최대 5초 후 진행)
+  setTimeout(() => {
+    if (s.locked) { s.locked = false; SENT.next(); }
+  }, 5000);
+
+} else {
+  SENT.updateAssembled();
+}
+ },
   undo(){ const s=this.state; const last=s.assembled.pop(); if(last!==undefined){ const btn=[...document.querySelectorAll('.s-option')].find(b=>b.textContent===last && b.disabled); if(btn) btn.disabled=false; } this.updateAssembled(); },
   updateAssembled(){ const box=$('#s-assembled'); if(box&&this.state){ box.textContent=this.state.assembled.join(''); } },
   next(){ const s=this.state; s.idx++; if(s.idx>=s.problems.length) return this.finish(); s.assembled=[]; this.render(); },
